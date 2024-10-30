@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  // Fondo Claro: #FAF9F6
+  // Fondo Oscuro: #1F1F1F
+  // Primario: #BF616A (Rojo suave)
+  // Texto Principal: #2F2F2F (para temas claros), #EDEDED (para temas oscuros)
+
+  .transitions {
+    @apply transition-all duration-200;
+  }
+
+  .logo {
+    @apply text-4xl font-bold;
+  }
+
+  .nav-item {
+    @apply w-[17%] transition-transform transitions cursor-pointer hover:scale-110 text-center;
+  }
+
+  .focusable-item {
+    @apply cursor-pointer text-[#9E9E9E] hover:text-[#FFFFFF] transitions;
+  }
+}
+
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.space-mono-regular-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.space-mono-bold-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+}
