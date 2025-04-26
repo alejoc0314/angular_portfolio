@@ -1,0 +1,22 @@
+<header
+  class="fixed flex-row justify-between top-0 left-0 w-full p-4 h-[2.5rem]"
+>
+  <div class="w-5 relative inline-block group">
+    <!-- Icono de lenguaje -->
+    <i class="fa-solid fa-language cursor-pointer pb-4"></i>
+
+    <!-- Menú desplegable -->
+    <div
+      class="absolute left-0 w-24 border border-gray-300 rounded-md shadow-lg opacity-0 transform scale-95 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-100"
+    >
+      <ul class="text-center text-sm py-1">
+        <li class="hover:bg-gray-100 hover:text-[#000000] py-1 cursor-pointer" (click)="alert('Español')">
+          Español
+        </li>
+        <li class="hover:bg-gray-100 hover:text-[#000000] py-1 cursor-pointer" (click)="alert('Español')">
+          English
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

@@ -22,8 +22,10 @@ export class FlowFieldComponent implements AfterViewInit {
   private ctx!: CanvasRenderingContext2D;
   private points: { x: number; y: number }[] = [];
   private originalPositions: { x: number; y: number }[] = [];
-  private density: number = 100;
+  private density: number = 70;
   private noise = createNoise2D();
+  private lastFrameTime: number = 0;
+  private fpsInterval: number = 1000 / 15;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
@@ -31,18 +33,17 @@ export class FlowFieldComponent implements AfterViewInit {
     if (isPlatformBrowser(this.platformId)) {
       this.initCanvas();
       this.createPoints();
-      this.animate();
+      requestAnimationFrame((timestamp) => this.animate(timestamp));
     }
   }
 
   private initCanvas(): void {
     const canvas = this.canvasRef.nativeElement;
     this.ctx = canvas.getContext('2d')!;
-
-    // Ajustamos el canvas al tamaño de la ventana
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
+    const scale = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * scale;
+    canvas.height = window.innerHeight * scale;
+    this.ctx.scale(scale, scale);
     this.ctx.fillStyle = 'black';
     this.ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
@@ -59,11 +60,17 @@ export class FlowFieldComponent implements AfterViewInit {
     }
   }
 
-  private animate(): void {
+  private animate(timestamp: number): void {
+    if (timestamp - this.lastFrameTime < this.fpsInterval) {
+      requestAnimationFrame((timestamp) => this.animate(timestamp));
+      return;
+    }
+    this.lastFrameTime = timestamp;
+
     this.ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
     this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
 
-    const timeOffset = performance.now() * 0.00019;
+    const timeOffset = timestamp * 0.00019;
 
     for (let i = 0; i < this.points.length; i++) {
       const noiseX = this.noise(
@@ -83,7 +90,7 @@ export class FlowFieldComponent implements AfterViewInit {
       this.ctx.fillRect(this.points[i].x, this.points[i].y, 0.5, 0.5);
     }
 
-    requestAnimationFrame(() => this.animate());
+    requestAnimationFrame((timestamp) => this.animate(timestamp));
   }
 
   private map(
@@ -96,11 +103,16 @@ export class FlowFieldComponent implements AfterViewInit {
     return start2 + ((stop2 - start2) * (value - start1)) / (stop1 - start1);
   }
 
+  private resizeTimeout: any;
+
   @HostListener('window:resize')
   onResize(): void {
-    this.initCanvas();
-    this.points = [];
-    this.originalPositions = [];
-    this.createPoints();
+    clearTimeout(this.resizeTimeout);
+    this.resizeTimeout = setTimeout(() => {
+      this.initCanvas();
+      this.points = [];
+      this.originalPositions = [];
+      this.createPoints();
+    }, 100);
   }
 }

@@ -1,14 +1,15 @@
 <app-flow-field></app-flow-field>
-<div class="fixed top-0 left-0 w-full h-[2.5rem]"></div>
+<app-header></app-header>
 <div
-  class="flex justify-center items center h-screen w-screen overflow-x-hidden"
+  class="fixed top-10 w-full flex flex-row justify-center items-center z-20 scroll-smooth"
 >
-  <div class="w-[80%] flex flex-col justify-around z-10 py-16">
-    <div class="h-fit">
-      <app-navbar></app-navbar>
-    </div>
+  <app-navbar class="w-[80%] bg-opacity-100"></app-navbar>
+</div>
+<div class="flex justify-center items center h-[95%] w-full overflow-x-hidden">
+  <div class="w-[80%] flex flex-col justify-around z-10 py-16 3xs:py-2 mt-20">
     <div class="h-[87%]">
-      <app-global-card></app-global-card>
+      <app-intro class="mb-4"></app-intro>
+      <app-skills class="mb-4"></app-skills>
     </div>
   </div>
 </div>

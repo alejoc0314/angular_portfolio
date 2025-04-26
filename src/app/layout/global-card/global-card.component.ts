@@ -12,5 +12,5 @@ import { FooterComponent } from "../footer/footer.component";
   styleUrl: './global-card.component.scss',
 })
 export class GlobalCardComponent {
-  case: 'home' | 'skills' | 'projects' | 'contact' = 'home';
+
 }

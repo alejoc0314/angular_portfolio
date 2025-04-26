@@ -8,6 +8,7 @@
   // Primario: #BF616A (Rojo suave)
   // Texto Principal: #2F2F2F (para temas claros), #EDEDED (para temas oscuros)
 
+  // Clases principales
   .transitions {
     @apply transition-all duration-200;
   }
@@ -17,12 +18,99 @@
   }
 
   .nav-item {
-    @apply w-[17%] transition-transform transitions cursor-pointer hover:scale-110 text-center;
+    @apply w-fit transition-transform transitions cursor-pointer hover:scale-110 text-center;
   }
 
   .focusable-item {
     @apply cursor-pointer text-[#9E9E9E] hover:text-[#FFFFFF] transitions;
   }
+
+  // Body text cases
+  body {
+    @apply 3xs:text-[0.7rem] 2xs:text-[0.8rem] xs:text-[0.9rem] s:text-[1rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1.7rem];
+  }
+
+  // -------------------------------------------------------- //
+  // Clases de Responsiveness GlobalCardComponent
+
+  // 3xs
+  .global-card-section-3xs {
+    @apply h-[75%] mt-36;
+  }
+  .global-card-container-3xs {
+    @apply px-6 pb-6;
+  }
+
+  // md
+  .global-card-section-md {
+    @apply h-[75%] mt-12;
+  }
+  .global-card-container-md {
+    @apply px-6 pb-6;
+  }
+
+  // lg
+  .global-card-section-lg {
+    @apply h-[87%];
+  }
+  // -------------------------------------------------------- //
+
+  // -------------------------------------------------------- //
+  // Clases de Responsiveness NavbarComponent
+
+  // 3xs
+  .navbar-container {
+    @apply max-w-full 3xs:text-[0.7rem] md:text-[0.8rem] lg:text-[0.9rem] xl:text-[1.5rem];
+  }
+
+  .navbar-ul-3xs {
+    @apply flex-col justify-center items-center;
+
+    .nav-item {
+      @apply mt-2 bg-black w-full p-1 overflow-hidden rounded-md;
+    }
+  }
+
+  .navbar-ul-md {
+    @apply flex-row;
+
+    .nav-item {
+      @apply w-full bg-transparent;
+    }
+  }
+  // -------------------------------------------------------- //
+
+  // -------------------------------------------------------- //
+  // Clases de Responsiveness IntroComponent
+  .intro-text-3xs {
+    @apply w-full h-full justify-center p-4;
+  }
+
+  .diagonal-3xs {
+    @apply top-10 -right-10;
+  }
+
+  .diagonal-2xs {
+    @apply top-14 -right-10;
+  }
+
+  .diagonal-xs {
+    @apply top-16 -right-10;
+  }
+
+  .diagonal-s {
+    @apply top-44 -right-10;
+  }
+
+  .diagonal-md {
+    @apply skew-y-[-23deg] top-48 -right-10;
+  }
+
+  .diagonal-lg {
+    @apply skew-y-[-16deg] top-48 -right-10;
+  }
+
+  // -------------------------------------------------------- //
 }
 
 .space-mono-regular {

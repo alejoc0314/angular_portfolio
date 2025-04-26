@@ -1,18 +1,13 @@
 <section
-  class="flex justify-center items-center w-full h-full bg-black rounded-lg"
+  class="flex justify-center items-center w-full h-full bg-black rounded-lg overflow-hidden 3xs:global-card-section-3xs md:global-card-section-md lg:global-card-section-lg"
 >
-  <div class="h-full w-full flex flex-col justify-between p-6">
+  <div
+    id="container"
+    class="h-full w-full flex flex-col justify-between p-6 3xs:global-card-container-3xs"
+  >
     <div class="w-full h-[92%]">
-      @switch (case) { @case ("home") {
-      <app-intro></app-intro>
-      } @case ("skills") {
-      <div></div>
-      } @case ("projects") {
-      <div></div>
-      } @case ("contact") {
-      <div></div>
-      } }
+      <ng-content select="[principal-content]"></ng-content>
     </div>
-    <app-footer></app-footer>
+    <app-footer class="z-20"></app-footer>
   </div>
 </section>

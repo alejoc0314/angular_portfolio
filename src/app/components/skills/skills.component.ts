@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { GlobalCardComponent } from "../../layout/global-card/global-card.component";
 
 @Component({
-  selector: 'app-intro',
+  selector: 'app-skills',
   standalone: true,
   imports: [GlobalCardComponent],
-  templateUrl: './intro.component.html',
-  styleUrl: './intro.component.scss'
+  templateUrl: './skills.component.html',
+  styleUrl: './skills.component.scss'
 })
-export class IntroComponent {
+export class SkillsComponent {
 
 }

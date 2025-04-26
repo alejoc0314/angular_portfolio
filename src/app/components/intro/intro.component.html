@@ -1,3 +1,36 @@
-<section class="w-full h-full bg-black rounded-md">
-    <div></div>
-</section>
+<app-global-card>
+  <section
+    principal-content
+    class="relative w-full h-full flex flex-col md:flex-row justify-between rounded-md"
+  >
+    <div
+      class="w-full md:max-w-[50%] flex flex-col justify-center p-16 z-20 3xs:intro-text-3xs md:pl-16"
+    >
+      <div>
+        <p class="w-full text-[#9E9E9E]">&lt;Hola, Mundo&gt;</p>
+        <p class="text-md md:text-md w-[95%] mt-4">
+          Mi nombre es Alejandro Cañas Arango
+        </p>
+        <p class="text-md md:text-md w-[95%] mt-4">
+          Desarrollador FullStack con énfasis en Machine Learning
+        </p>
+        <p class="text-md md:text-md w-[90%] mt-4 text-justify">
+          Tengo experiencia en la creación de aplicaciones web usando Angular,
+          Laravel y Django Rest
+        </p>
+      </div>
+    </div>
+    <div
+      class="w-[50%] h-full flex flex-col justify-center items-center px-10 pl-4 py-10 z-20 3xs:hidden md:block"
+    >
+      <img
+        src="images/pelotas.jpeg"
+        alt="Intro image"
+        class="w-full h-full object-cover rounded-md overflow-hidden"
+      />
+    </div>
+    <div
+      class="absolute top-60 -right-60 w-[135%] h-[100%] flex items-center justify-center mt-4 md:mt-0 skew-y-[-30deg] z-10 bg-[#252529] 3xs:diagonal-3xs 2xs:diagonal-2xs xs:diagonal-xs s:diagonal-s md:diagonal-md lg:diagonal-lg xl:diagonal-3xs"
+    ></div>
+  </section>
+</app-global-card>
